@@ -4,7 +4,7 @@ import Stats from "./components/stats";
 import Serivces from "./components/services";
 import Benefits from "./components/benefits";
 import Testimonials from "./components/testimonials";
-import Signup from "./components/signup";
+
 import Footer from "./components/footer";
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
       <Serivces />
       <Benefits />
       <Testimonials />
-      <Signup />
+    
       <Footer />
     </main>
   );

@@ -22,12 +22,11 @@ export default function Hero() {
         </p>
 
         {/* Headline */}
-        <h1 className="fade-up fade-up-2 font-display text-[clamp(64px,12vw,120px)] font-black leading-[0.92] tracking-tight uppercase mb-8">
+        <h1 className="fade-up fade-up-2 font-display text-[clamp(64px,12vw,120px)] leading-[0.92] uppercase mb-8 tracking-[0.0001em]">
           Play.<br />
           <span className="text-[#DA1D3A]">Compete.</span><br />
           Win.
         </h1>
-
         {/* Subheadline */}
         <p className="fade-up fade-up-3 text-white/55 text-lg md:text-xl max-w-xl mb-12 leading-relaxed">
           We build high-performance websites and registration systems for sports teams, schools, and camps across the USA — so you can focus on the game.

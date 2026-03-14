@@ -27,17 +27,32 @@ body {
     opacity: 0;
     transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-.fade-up   { animation: fadeUp 0.7s ease both; }
-.fade-up-1 { animation-delay: 0.10s; }
-.fade-up-2 { animation-delay: 0.25s; }
-.fade-up-3 { animation-delay: 0.40s; }
-.fade-up-4 { animation-delay: 0.55s; }
+.fade-up {
+  animation: fadeUp 0.7s ease both;
+}
+
+.fade-up-1 {
+  animation-delay: 0.10s;
+}
+
+.fade-up-2 {
+  animation-delay: 0.25s;
+}
+
+.fade-up-3 {
+  animation-delay: 0.40s;
+}
+
+.fade-up-4 {
+  animation-delay: 0.55s;
+}
 
 input::placeholder,
 select option[value=""] {
@@ -46,4 +61,8 @@ select option[value=""] {
 
 select {
   color: #fff;
+}
+
+.font-display {
+  font-family: Impact, 'Arial Narrow', sans-serif;
 }
