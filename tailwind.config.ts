@@ -10,9 +10,5 @@ const config: Config = {
     extend: {},
   },
   plugins: [],
-  fontFamily: {
-    display: ["Impact", "Arial Narrow", "sans-serif"],
-    sans: ["var(--font-sans)"],
-  },
 };
 export default config;
