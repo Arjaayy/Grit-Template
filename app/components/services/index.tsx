@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const steps = [
   {
     n: "1",
@@ -19,12 +21,11 @@ const steps = [
   },
 ];
 
-import Image from "next/image";
-
 export default function HowItWorks() {
   return (
-    <section id="" className="bg-[#0e132b] py-32 px-6">
+    <section id="programs" className="bg-[#0e132b] py-32 px-6">
       <div className="max-w-6xl mx-auto">
+
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">
           <div>
@@ -34,13 +35,14 @@ export default function HowItWorks() {
                 Services
               </p>
             </div>
+
             <h2 className="font-display text-[clamp(42px,6vw,72px)] font-black uppercase leading-[0.95]">
               What we Offer
             </h2>
           </div>
         </div>
 
-        {/* Cards grid */}
+        {/* Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
           {steps.map(({ n, title, desc, image }) => (
             <div
@@ -55,15 +57,16 @@ export default function HowItWorks() {
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                {/* Image overlay */}
+
+                {/* Overlay */}
                 <div className="absolute inset-0 bg-[#0e132b]/60 group-hover:bg-[#0e132b]/40 transition-all duration-300" />
 
-                {/* Step number over image */}
+                {/* Number */}
                 <span className="absolute top-4 left-4 font-display text-5xl font-black text-white/20 group-hover:text-[#DA1D3A]/50 transition-colors duration-300 leading-none">
                   {n}
                 </span>
 
-                {/* Red corner accent */}
+                {/* Red line */}
                 <div className="absolute bottom-0 left-0 w-10 h-[3px] bg-[#DA1D3A]" />
               </div>
 
@@ -72,11 +75,22 @@ export default function HowItWorks() {
                 <h3 className="font-display text-2xl font-black uppercase mb-3 group-hover:text-[#DA1D3A] transition-colors duration-300">
                   {title}
                 </h3>
-                <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
+
+                <p className="text-white/50 text-sm leading-relaxed mb-5">
+                  {desc}
+                </p>
+
+                <a
+                  href="#signup"
+                  className="inline-flex items-center gap-2 bg-[#DA1D3A] text-white text-xs font-medium px-5 py-2.5 uppercase tracking-wider hover:bg-red-700 transition-colors"
+                >
+                  Learn more →
+                </a>
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
