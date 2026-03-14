@@ -1,15 +1,16 @@
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import Image from "next/image";
 
 export const metadata = { title: "Programs — GritTemplate" };
 
 const programs = [
-  { n: "01", icon: "⚽", title: "Football League",     level: "All levels",    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." },
-  { n: "02", icon: "🏀", title: "Basketball League",   level: "Intermediate",  desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." },
-  { n: "03", icon: "🏐", title: "Volleyball League",   level: "Beginner",      desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
-  { n: "04", icon: "🎾", title: "Tennis Program",      level: "Advanced",      desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." },
-  { n: "05", icon: "🏫", title: "School Programs",     level: "Youth",         desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut labore et dolore magna aliqua enim ad minim veniam." },
-  { n: "06", icon: "🏅", title: "Elite Tournaments",   level: "Competitive",   desc: "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor." },
+  { icon: "⚽", title: "Football League", level: "All levels", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", image: "/placeholders/football.jpg" },
+  { icon: "🏀", title: "Basketball League", level: "Intermediate", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", image: "/placeholders/basketball.jpg" },
+  { icon: "🏐", title: "Volleyball League", level: "Beginner", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", image: "/placeholders/volleyball.jpg" },
+  { icon: "🎾", title: "Tennis Program", level: "Advanced", desc: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", image: "/placeholders/tennis.jpg" },
+  { icon: "🏫", title: "School Programs", level: "Youth", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut labore et dolore magna aliqua enim ad minim veniam.", image: "/placeholders/school.jpg" },
+  { icon: "🏅", title: "Elite Tournaments", level: "Competitive", desc: "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis aute irure dolor.", image: "/placeholders/elite.jpg" },
 ];
 
 export default function ProgramsPage() {
@@ -39,21 +40,33 @@ export default function ProgramsPage() {
       <section className="bg-[#0e132b] py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-            {programs.map(({ n, icon, title, level, desc }) => (
-              <div key={n} className="group bg-[#131829] border border-white/5 rounded-sm p-8 hover:border-[#DA1D3A]/40 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-[#DA1D3A] transition-all duration-300" />
-                <div className="absolute inset-0 bg-[#DA1D3A]/0 group-hover:bg-[#DA1D3A]/5 transition-all duration-300 pointer-events-none" />
-                <div className="flex items-start justify-between mb-6">
-                  <div className="w-12 h-12 rounded-sm bg-white/5 group-hover:bg-[#DA1D3A]/10 flex items-center justify-center transition-colors">
-                    <span className="text-xl">{icon}</span>
-                  </div>
-                  <span className="font-display text-4xl font-black text-white/[0.06] group-hover:text-[#DA1D3A]/20 transition-colors leading-none">{n}</span>
+            {programs.map(({ icon, title, level, desc, image }) => (
+              <div key={title} className="group bg-[#131829] border border-white/5 rounded-sm overflow-hidden hover:border-[#DA1D3A]/50 transition-all duration-300 relative">
+                <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-[#DA1D3A] transition-all duration-300 z-10" />
+
+                {/* Image */}
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
+                    src={image}
+                    alt={title}
+                    fill
+                    className="object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-[#0e132b]/50 group-hover:bg-[#0e132b]/30 transition-all duration-300" />
+                  <span className="absolute top-4 left-4 font-display text-5xl font-black text-white/20 group-hover:text-[#DA1D3A]/50 transition-colors duration-300 leading-none z-10">
+                    {icon}
+                  </span>
+                  <div className="absolute bottom-0 left-0 w-10 h-[3px] bg-[#DA1D3A]" />
                 </div>
-                <span className="inline-block text-[#DA1D3A] text-xs font-medium tracking-widest uppercase border border-[#DA1D3A]/30 px-2 py-0.5 mb-3">{level}</span>
-                <h3 className="font-display text-xl font-black uppercase mb-3 group-hover:text-[#DA1D3A] transition-colors">{title}</h3>
-                <p className="text-white/45 text-sm leading-relaxed">{desc}</p>
-                <div className="mt-6 flex items-center gap-2 text-[#DA1D3A] text-xs font-medium uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
-                  Learn more <span>→</span>
+
+                {/* Content */}
+                <div className="p-6">
+                  <span className="inline-block text-[#DA1D3A] text-xs font-medium tracking-widest uppercase border border-[#DA1D3A]/30 px-2 py-0.5 mb-3">{level}</span>
+                  <h3 className="font-display text-xl font-black uppercase mb-3 group-hover:text-[#DA1D3A] transition-colors">{title}</h3>
+                  <p className="text-white/45 text-sm leading-relaxed">{desc}</p>
+                  <div className="mt-6 flex items-center gap-2 text-[#DA1D3A] text-xs font-medium uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                    Learn more <span>→</span>
+                  </div>
                 </div>
               </div>
             ))}

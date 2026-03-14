@@ -1,5 +1,6 @@
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import Image from "next/image";
 
 export const metadata = { title: "About — GritTemplate" };
 
@@ -27,7 +28,7 @@ export default function AboutPage() {
       </section>
 
       {/* Mission */}
-      <section className="bg-[#0e132b] py-28 px-6">
+      <section className="bg-[#0e132b] py-16 px-6">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -48,8 +49,8 @@ export default function AboutPage() {
             {[
               { num: "2018", label: "Founded" },
               { num: "500+", label: "Athletes" },
-              { num: "12",   label: "Sports" },
-              { num: "8",    label: "Years running" },
+              { num: "12", label: "Sports" },
+              { num: "8", label: "Years running" },
             ].map(({ num, label }) => (
               <div key={label} className="bg-[#131829] border border-white/5 rounded-sm p-6 hover:border-[#DA1D3A]/30 transition-colors">
                 <p className="font-display text-4xl font-black text-[#DA1D3A] mb-1">{num}</p>
@@ -61,29 +62,36 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="bg-[#131829] py-28 px-6">
+      <section className="bg-[#131829] py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-[1px] w-8 bg-[#DA1D3A]" />
             <p className="text-[#DA1D3A] text-xs font-medium tracking-[0.2em] uppercase">Our team</p>
           </div>
-          <h2 className="font-display text-[clamp(36px,5vw,60px)] font-black uppercase leading-[0.95] mb-16">
+          <h2 className="font-display text-[clamp(36px,5vw,60px)] font-black uppercase leading-[0.95] mb-12">
             The people<br />behind it
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { initials: "JD", name: "John Dela Cruz", role: "Founder & CEO" },
-              { initials: "MR", name: "Maria Reyes",    role: "Head of Programs" },
-              { initials: "AS", name: "Alex Santos",    role: "League Director" },
-              { initials: "KL", name: "Kim Lim",        role: "Community Manager" },
-            ].map(({ initials, name, role }) => (
-              <div key={name} className="group bg-[#0e132b] border border-white/5 rounded-sm p-6 hover:border-[#DA1D3A]/40 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-[#DA1D3A] transition-all duration-300" />
-                <div className="w-14 h-14 rounded-sm bg-[#DA1D3A]/20 flex items-center justify-center font-display text-xl font-black text-[#DA1D3A] mb-4">
-                  {initials}
+              { name: "John Dela Cruz", role: "Founder & CEO", image: "/placeholders/coach1.png" },
+              { name: "Maria Reyes", role: "Head of Programs", image: "/placeholders/coach2.png" },
+              { name: "Alex Santos", role: "League Director", image: "/placeholders/coach3.png" },
+              { name: "Kim Lim", role: "Community Manager", image: "/placeholders/coach4.png" },
+            ].map(({ name, role, image }) => (
+              <div key={name} className="group bg-[#0e132b] border border-white/5 rounded-sm overflow-hidden hover:border-[#DA1D3A]/40 transition-all duration-300 relative">
+                <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-[#DA1D3A] transition-all duration-300 z-10" />
+                <div className="relative w-full h-64 overflow-hidden bg-[#0e132b]">
+                  <Image
+                    src={image}
+                    alt={name}
+                    fill
+                    className="object-cover object-[center_20%] transition-transform duration-500 group-hover:scale-105"
+                  />
                 </div>
-                <p className="font-medium text-white text-sm mb-1 group-hover:text-[#DA1D3A] transition-colors">{name}</p>
-                <p className="text-white/35 text-xs uppercase tracking-widest">{role}</p>
+                <div className="p-5">
+                  <p className="font-medium text-white text-sm mb-1 group-hover:text-[#DA1D3A] transition-colors">{name}</p>
+                  <p className="text-white/35 text-xs uppercase tracking-widest">{role}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -91,26 +99,32 @@ export default function AboutPage() {
       </section>
 
       {/* Values */}
-      <section className="bg-[#0e132b] py-28 px-6">
+      <section className="bg-[#0e132b] py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="flex items-center gap-3 mb-4">
             <div className="h-[1px] w-8 bg-[#DA1D3A]" />
             <p className="text-[#DA1D3A] text-xs font-medium tracking-[0.2em] uppercase">What we stand for</p>
           </div>
-          <h2 className="font-display text-[clamp(36px,5vw,60px)] font-black uppercase leading-[0.95] mb-16">Our values</h2>
+          <h2 className="font-display text-[clamp(36px,5vw,60px)] font-black uppercase leading-[0.95] mb-12">Our values</h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {[
-              { icon: "⚡", title: "Grit",      desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
-              { icon: "🤝", title: "Community", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo." },
-              { icon: "🏆", title: "Excellence", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." },
-            ].map(({ icon, title, desc }) => (
-              <div key={title} className="group bg-[#131829] border border-white/5 rounded-sm p-8 hover:border-[#DA1D3A]/40 transition-all duration-300 relative overflow-hidden">
-                <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-[#DA1D3A] transition-all duration-300" />
-                <div className="w-10 h-10 rounded-sm bg-white/5 group-hover:bg-[#DA1D3A]/10 flex items-center justify-center mb-5 transition-colors">
-                  <span className="text-lg">{icon}</span>
+              { icon: "⚡", title: "Grit", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.", image: "/placeholders/offer1.png" },
+              { icon: "🤝", title: "Community", desc: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.", image: "/placeholders/offer2.jpg" },
+              { icon: "🏆", title: "Excellence", desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.", image: "/placeholders/offer3.jpg" },
+            ].map(({ icon, title, desc, image }) => (
+              <div key={title} className="group bg-[#131829] border border-white/5 rounded-sm overflow-hidden hover:border-[#DA1D3A]/40 transition-all duration-300 relative">
+                <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-[#DA1D3A] transition-all duration-300 z-10" />
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image src={image} alt={title} fill className="object-cover object-center transition-transform duration-500 group-hover:scale-105" />
+                  <div className="absolute inset-0 bg-[#0e132b]/50 group-hover:bg-[#0e132b]/30 transition-all duration-300" />
                 </div>
-                <h3 className="font-display text-2xl font-black uppercase mb-3 group-hover:text-[#DA1D3A] transition-colors">{title}</h3>
-                <p className="text-white/45 text-sm leading-relaxed">{desc}</p>
+                <div className="p-8">
+                  <div className="w-10 h-10 rounded-sm bg-white/5 group-hover:bg-[#DA1D3A]/10 flex items-center justify-center mb-5 transition-colors">
+                    <span className="text-lg">{icon}</span>
+                  </div>
+                  <h3 className="font-display text-2xl font-black uppercase mb-3 group-hover:text-[#DA1D3A] transition-colors">{title}</h3>
+                  <p className="text-white/45 text-sm leading-relaxed">{desc}</p>
+                </div>
               </div>
             ))}
           </div>
