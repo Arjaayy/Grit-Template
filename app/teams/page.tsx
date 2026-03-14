@@ -1,15 +1,16 @@
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
-
+import Image from "next/image";
 export const metadata = { title: "Teams — GritTemplate" };
 
+
 const teams = [
-  { initials: "RD", name: "Red Dragons",    sport: "Football",   wins: 8, losses: 2, captain: "Marco S." },
-  { initials: "BL", name: "Blue Lightning", sport: "Basketball", wins: 7, losses: 3, captain: "Jamie K." },
-  { initials: "GW", name: "Green Wolves",   sport: "Volleyball", wins: 6, losses: 4, captain: "Rania L." },
-  { initials: "IH", name: "Iron Hawks",     sport: "Football",   wins: 9, losses: 1, captain: "Alex T." },
-  { initials: "SS", name: "Storm Strikers", sport: "Basketball", wins: 5, losses: 5, captain: "Chris P." },
-  { initials: "FC", name: "Fire Cobras",    sport: "Tennis",     wins: 7, losses: 3, captain: "Nina R." },
+  { initials: "RD", name: "Red Dragons", sport: "Football", wins: 8, losses: 2, captain: "Marco S.", image: "/placeholders/logo 1.jpg" },
+  { initials: "BL", name: "Blue Lightning", sport: "Basketball", wins: 7, losses: 3, captain: "Jamie K.", image: "/placeholders/logo2.jpg" },
+  { initials: "GW", name: "Green Wolves", sport: "Volleyball", wins: 6, losses: 4, captain: "Rania L.", image: "/placeholders/logo3.jpg" },
+  { initials: "IH", name: "Iron Hawks", sport: "Football", wins: 9, losses: 1, captain: "Alex T.", image: "/placeholders/logo4.jpg" },
+  { initials: "SS", name: "Storm Strikers", sport: "Basketball", wins: 5, losses: 5, captain: "Chris P.", image: "/placeholders/logo5.jpg" },
+  { initials: "FC", name: "Fire Cobras", sport: "Tennis", wins: 7, losses: 3, captain: "Nina R.", image: "/placeholders/logo6.jpg" },
 ];
 
 const sports = ["All", "Football", "Basketball", "Volleyball", "Tennis"];
@@ -54,21 +55,30 @@ export default function TeamsPage() {
       <section className="bg-[#0e132b] py-16 px-6">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-            {teams.map(({ initials, name, sport, wins, losses, captain }) => (
+            {teams.map(({ initials, name, sport, wins, losses, captain, image }) => (
               <div key={name} className="group bg-[#131829] border border-white/5 rounded-sm overflow-hidden hover:border-[#DA1D3A]/40 transition-all duration-300 relative">
                 <div className="absolute top-0 left-0 w-0 group-hover:w-full h-[2px] bg-[#DA1D3A] transition-all duration-300" />
-                {/* Team header */}
-                <div className="p-6 border-b border-white/5">
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-sm bg-[#DA1D3A]/20 flex items-center justify-center font-display text-xl font-black text-[#DA1D3A] flex-shrink-0">
-                      {initials}
-                    </div>
-                    <div>
-                      <h3 className="font-display text-lg font-black uppercase group-hover:text-[#DA1D3A] transition-colors">{name}</h3>
-                      <span className="text-[#DA1D3A] text-xs uppercase tracking-widest">{sport}</span>
+
+                {/* Team header with logo */}
+                <div className="p-6 border-b border-white/5 flex items-center gap-4">
+                  <div className="relative w-14 h-14 rounded-sm overflow-hidden flex-shrink-0 bg-[#0e132b] border border-white/10">
+                    <Image
+                      src={image}
+                      alt={name}
+                      fill
+                      className="object-cover object-center"
+                    />
+                    {/* Fallback initials */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="font-display text-sm font-black text-[#DA1D3A]/30">{initials}</span>
                     </div>
                   </div>
+                  <div>
+                    <h3 className="font-display text-lg font-black uppercase group-hover:text-[#DA1D3A] transition-colors">{name}</h3>
+                    <span className="text-[#DA1D3A] text-xs uppercase tracking-widest">{sport}</span>
+                  </div>
                 </div>
+
                 {/* Stats */}
                 <div className="p-6 grid grid-cols-3 gap-4">
                   <div className="text-center">
@@ -84,6 +94,7 @@ export default function TeamsPage() {
                     <p className="text-white/35 text-xs uppercase tracking-widest mt-1">Played</p>
                   </div>
                 </div>
+
                 <div className="px-6 pb-5 flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full bg-[#DA1D3A]" />
                   <p className="text-white/35 text-xs">Captain: <span className="text-white/60">{captain}</span></p>
