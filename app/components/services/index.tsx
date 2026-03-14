@@ -23,7 +23,7 @@ import Image from "next/image";
 
 export default function HowItWorks() {
   return (
-    <section id="about" className="bg-[#0e132b] py-32 px-6">
+    <section id="" className="bg-[#0e132b] py-32 px-6">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16">

@@ -16,7 +16,7 @@ export default function Footer() {
   }
 
   return (
-    <footer id="contact" className="bg-[#080d1e] border-t border-white/5">
+    <footer id="" className="bg-[#080d1e] border-t border-white/5">
 
       {/* Top red bar */}
       <div className="h-[3px] bg-[#DA1D3A] w-full" />
