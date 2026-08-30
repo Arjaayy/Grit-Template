@@ -48,3 +48,5 @@ To change the brand color, find/replace `#DA1D3A` across the project.
 npm run build
 npm start
 ```
+
+<!-- Vercel Trigger 20260831063339 -->
